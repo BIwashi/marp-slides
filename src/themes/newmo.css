@@ -1,0 +1,165 @@
+/* @theme newmo */
+
+@import "default";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
+
+:root {
+	--newmo-primary: #00a724;
+	--newmo-secondary: #111111;
+	--newmo-background: #ffffff;
+	--newmo-text: #111111;
+	--newmo-gray: #666666;
+	--newmo-light-gray: #f5f5f5;
+}
+
+section {
+	background: var(--newmo-background);
+	color: var(--newmo-text);
+	font-family: "Noto Sans JP", sans-serif;
+	padding: 40px;
+	line-height: 1.5;
+}
+
+section.title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: var(--newmo-primary);
+	color: var(--newmo-background);
+	padding: 0;
+}
+
+section.title h1,
+section.title h2,
+section.title h3 {
+	color: var(--newmo-background);
+}
+
+section.title img {
+	margin: 20px 0;
+}
+
+section.highlight,
+section.highlight-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background: var(--newmo-primary);
+}
+
+section.highlight {
+	color: var(--newmo-background);
+	padding: 0;
+}
+
+section.highlight h1,
+section.highlight h2,
+section.highlight h3 {
+	color: var(--newmo-background);
+}
+
+section.highlight-box {
+	padding: 20px 40px;
+}
+
+section.highlight-box .content {
+	background: white;
+	border-radius: 50px;
+	width: 94%;
+	height: 94%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 0 40px;
+}
+
+section.highlight-box .content h1 {
+	color: var(--newmo-primary);
+	font-size: 2.8em;
+	margin: 0 0 0.5em 0;
+}
+
+section.highlight-box .content p {
+	font-size: 1.4em;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 80%;
+}
+
+section.highlight-box .content img {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	width: 120px;
+}
+
+section.split {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 40px;
+	align-items: center;
+}
+
+h1 {
+	color: var(--newmo-primary);
+	font-size: 2.5em;
+	font-weight: 700;
+	margin-bottom: 0.5em;
+}
+
+h2 {
+	color: var(--newmo-secondary);
+	font-size: 1.8em;
+	font-weight: 700;
+}
+
+h3 {
+	color: var(--newmo-secondary);
+	font-size: 1.4em;
+	font-weight: 500;
+}
+
+ul,
+ol {
+	padding-left: 1.5em;
+}
+
+li {
+	margin-bottom: 0.5em;
+}
+
+a {
+	color: var(--newmo-primary);
+	text-decoration: none;
+}
+
+code {
+	background: var(--newmo-light-gray);
+	color: var(--newmo-secondary);
+	padding: 0.2em 0.4em;
+	border-radius: 4px;
+}
+
+footer {
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+	color: var(--newmo-gray);
+	font-size: 0.6em;
+}
+
+section::after {
+	content: attr(data-marpit-pagination);
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+	color: var(--newmo-gray);
+	font-size: 0.6em;
+}
