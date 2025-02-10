@@ -1,0 +1,26 @@
+name: assign-author
+
+on:
+  pull_request:
+    types:
+      - opened
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  assign:
+    name: assign author
+    if: endsWith(github.actor, '[bot]') == false && github.event.pull_request.assignee == null
+    runs-on: ${{ vars.RUNNER_DEFAULT }}
+    permissions:
+      pull-requests: write
+      repository-projects: read
+    timeout-minutes: 5
+    steps:
+      - name: Add event actor to assignees
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh pr edit ${{ github.event.number }} --add-assignee ${{ github.actor }}
