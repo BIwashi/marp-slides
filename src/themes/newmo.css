@@ -50,11 +50,15 @@ section::after {
 	font-size: 0.6em;
 }
 
+/* タイトルスライドのページ番号を非表示 */
+section.title::after {
+	display: none;
+}
+
 /* 緑背景時のフッター色変更 */
 section.title footer,
 section.highlight footer,
 section.highlight-box footer,
-section.title::after,
 section.highlight::after,
 section.highlight-box::after {
 	color: var(--newmo-background);
@@ -64,7 +68,7 @@ section.highlight-box::after {
  * ロゴの配置
  * ---------------------------------------- */
 /* 白背景時のロゴ（黒） */
-section::before {
+section:not(.title):not(.highlight):not(.highlight-box)::before {
 	content: '';
 	background-image: url('../themes/images/newmo_logo_black.png');
 	background-size: contain;
@@ -76,8 +80,7 @@ section::before {
 	height: 20px;
 }
 
-/* 緑背景時のロゴ（白） */
-section.title::before,
+/* 緑背景時のロゴ（白） - 通常サイズ */
 section.highlight::before,
 section.highlight-box::before {
 	content: '';
@@ -89,6 +92,20 @@ section.highlight-box::before {
 	right: 20px;
 	width: 80px;
 	height: 20px;
+}
+
+/* タイトルスライドのロゴ（白） - 大きいサイズ */
+section.title::before {
+	content: '';
+	background-image: url('../themes/images/newmo_logo_white.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 40px !important;
+	right: 40px;
+	width: 230px;
+	height: 50px;
+	top: auto !important;
 }
 
 /**
@@ -143,26 +160,40 @@ section.highlight {
 
 /* ハイライトボックスセクション */
 section.highlight-box {
-	padding: 20px 40px;
+    padding: 20px 40px;
+    background: var(--newmo-primary);
 }
 
-section.highlight-box .content {
-	background: white;
-	border-radius: 50px;
-	width: 94%;
-	height: 94%;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	padding: 0 40px;
+section.highlight-box > div {
+    background: white;
+    border-radius: 50px;
+    width: 94%;
+    height: 94%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 40px;
+}
+
+section.highlight-box > div h1 {
+    color: var(--newmo-primary);
+    font-size: 2.8em;
+    margin: 0 0 0.5em 0;
+}
+
+section.highlight-box > div p {
+    font-size: 1.4em;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 80%;
 }
 
 /* ハイライトボックス内のロゴ非表示 */
-section.highlight-box .content::before {
-	display: none;
+section.highlight-box > div::before {
+    display: none;
 }
 
 /**

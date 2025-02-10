@@ -16,7 +16,7 @@ footer: © 2025 newmo | #roscafe
 ---
 
 <!-- _class: highlight-box -->
-<div class="content">
+<div>
 
 # 本日のテーマ
 
@@ -107,7 +107,7 @@ footer: © 2025 newmo | #roscafe
 ---
 
 <!-- _class: highlight-box -->
-<div class="content">
+<div>
 
 # 今後の展望
 
