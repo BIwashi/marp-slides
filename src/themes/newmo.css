@@ -64,7 +64,7 @@ section.highlight-box::after {
  * ロゴの配置
  * ---------------------------------------- */
 /* 白背景時のロゴ（黒） */
-section::before {
+section:not(.title):not(.highlight):not(.highlight-box)::before {
 	content: '';
 	background-image: url('../themes/images/newmo_logo_black.png');
 	background-size: contain;
@@ -76,8 +76,7 @@ section::before {
 	height: 20px;
 }
 
-/* 緑背景時のロゴ（白） */
-section.title::before,
+/* 緑背景時のロゴ（白） - 通常サイズ */
 section.highlight::before,
 section.highlight-box::before {
 	content: '';
@@ -89,6 +88,20 @@ section.highlight-box::before {
 	right: 20px;
 	width: 80px;
 	height: 20px;
+}
+
+/* タイトルスライドのロゴ（白） - 大きいサイズ */
+section.title::before {
+	content: '';
+	background-image: url('../themes/images/newmo_logo_white.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	bottom: 40px !important;
+	right: 40px;
+	width: 230px;
+	height: 50px;
+	top: auto !important;
 }
 
 /**
