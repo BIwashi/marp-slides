@@ -1,67 +1,147 @@
 /* @theme newmo */
 
+/**
+ * 基本設定とフォントの読み込み
+ * ---------------------------------------- */
 @import "default";
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
 
+/**
+ * カラー変数の定義
+ * ---------------------------------------- */
 :root {
-	--newmo-primary: #00a724;
-	--newmo-secondary: #111111;
-	--newmo-background: #ffffff;
-	--newmo-text: #111111;
-	--newmo-gray: #666666;
-	--newmo-light-gray: #f5f5f5;
+	--newmo-primary: #00a724;    /* メインカラー（緑） */
+	--newmo-secondary: #111111;   /* サブカラー（黒） */
+	--newmo-background: #ffffff;  /* 背景色（白） */
+	--newmo-text: #111111;       /* 本文テキスト色 */
+	--newmo-gray: #666666;       /* グレー（フッターなど） */
+	--newmo-light-gray: #f5f5f5; /* 薄いグレー（コードブロックなど） */
 }
 
+/**
+ * 基本レイアウト
+ * ---------------------------------------- */
 section {
 	background: var(--newmo-background);
 	color: var(--newmo-text);
 	font-family: "Noto Sans JP", sans-serif;
 	padding: 40px;
 	line-height: 1.5;
+	position: relative;
 }
 
+/**
+ * フッターとページ番号
+ * ---------------------------------------- */
+footer {
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+	color: var(--newmo-gray);
+	font-size: 0.6em;
+}
+
+section::after {
+	content: attr(data-marpit-pagination);
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+	color: var(--newmo-gray);
+	font-size: 0.6em;
+}
+
+/* 緑背景時のフッター色変更 */
+section.title footer,
+section.highlight footer,
+section.highlight-box footer,
+section.title::after,
+section.highlight::after,
+section.highlight-box::after {
+	color: var(--newmo-background);
+}
+
+/**
+ * ロゴの配置
+ * ---------------------------------------- */
+/* 白背景時のロゴ（黒） */
+section::before {
+	content: '';
+	background-image: url('../themes/images/newmo_logo_black.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 80px;
+	height: 20px;
+}
+
+/* 緑背景時のロゴ（白） */
+section.title::before,
+section.highlight::before,
+section.highlight-box::before {
+	content: '';
+	background-image: url('../themes/images/newmo_logo_white.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 80px;
+	height: 20px;
+}
+
+/**
+ * 背景色の設定
+ * ---------------------------------------- */
+/* 緑背景のセクション */
+section.title,
+section.highlight,
+section.highlight-box {
+    background: var(--newmo-primary);
+}
+
+/* 緑背景時の文字色 */
+section.title h1,
+section.title h2,
+section.title h3,
+section.title h4,
+section.title h5,
+section.title p,
+section.highlight h1,
+section.highlight h2,
+section.highlight h3,
+section.highlight h4,
+section.highlight h5,
+section.highlight p {
+    color: var(--newmo-background);
+}
+
+/**
+ * 特殊セクションのスタイル
+ * ---------------------------------------- */
+/* タイトルセクション */
 section.title {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background: var(--newmo-primary);
-	color: var(--newmo-background);
 	padding: 0;
 }
 
-section.title h1,
-section.title h2,
-section.title h3 {
-	color: var(--newmo-background);
-}
-
-section.title img {
-	margin: 20px 0;
-}
-
-section.highlight,
-section.highlight-box {
+/* ハイライトセクション */
+section.highlight {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background: var(--newmo-primary);
-}
-
-section.highlight {
-	color: var(--newmo-background);
 	padding: 0;
-}
-
-section.highlight h1,
-section.highlight h2,
-section.highlight h3 {
 	color: var(--newmo-background);
 }
 
+/* ハイライトボックスセクション */
 section.highlight-box {
 	padding: 20px 40px;
 }
@@ -80,26 +160,14 @@ section.highlight-box .content {
 	padding: 0 40px;
 }
 
-section.highlight-box .content h1 {
-	color: var(--newmo-primary);
-	font-size: 2.8em;
-	margin: 0 0 0.5em 0;
+/* ハイライトボックス内のロゴ非表示 */
+section.highlight-box .content::before {
+	display: none;
 }
 
-section.highlight-box .content p {
-	font-size: 1.4em;
-	line-height: 1.6;
-	margin: 0;
-	max-width: 80%;
-}
-
-section.highlight-box .content img {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	width: 120px;
-}
-
+/**
+ * 分割レイアウト
+ * ---------------------------------------- */
 section.split {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -107,6 +175,10 @@ section.split {
 	align-items: center;
 }
 
+/**
+ * タイポグラフィ
+ * ---------------------------------------- */
+/* 見出し */
 h1 {
 	color: var(--newmo-primary);
 	font-size: 2.5em;
@@ -126,8 +198,8 @@ h3 {
 	font-weight: 500;
 }
 
-ul,
-ol {
+/* リスト */
+ul, ol {
 	padding-left: 1.5em;
 }
 
@@ -135,31 +207,16 @@ li {
 	margin-bottom: 0.5em;
 }
 
+/* リンク */
 a {
 	color: var(--newmo-primary);
 	text-decoration: none;
 }
 
+/* コードブロック */
 code {
 	background: var(--newmo-light-gray);
 	color: var(--newmo-secondary);
 	padding: 0.2em 0.4em;
 	border-radius: 4px;
-}
-
-footer {
-	position: absolute;
-	bottom: 10px;
-	left: 20px;
-	color: var(--newmo-gray);
-	font-size: 0.6em;
-}
-
-section::after {
-	content: attr(data-marpit-pagination);
-	position: absolute;
-	bottom: 10px;
-	right: 20px;
-	color: var(--newmo-gray);
-	font-size: 0.6em;
 }
