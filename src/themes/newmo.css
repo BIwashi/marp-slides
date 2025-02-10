@@ -18,6 +18,100 @@ section {
 	font-family: "Noto Sans JP", sans-serif;
 	padding: 40px;
 	line-height: 1.5;
+	position: relative;
+}
+
+/* ページ番号とフッター */
+footer {
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+	color: var(--newmo-primary);
+	font-size: 0.6em;
+}
+
+section::after {
+	content: attr(data-marpit-pagination);
+	position: absolute;
+	bottom: 10px;
+	right: 20px;
+	color: var(--newmo-primary);
+	font-size: 0.6em;
+}
+
+/* 緑背景時のフッター */
+section.title footer,
+section.highlight footer,
+section.highlight-box footer,
+section.title::after,
+section.highlight::after,
+section.highlight-box::after {
+	color: var(--newmo-background);
+}
+
+/* 白背景時のロゴ */
+section::before {
+	content: '';
+	background-image: url('../themes/images/newmo_logo_black.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 80px;
+	height: 20px;
+}
+
+/* 緑背景時のロゴ */
+section.title::before,
+section.highlight::before,
+section.highlight-box::before {
+	content: '';
+	background-image: url('../themes/images/newmo_logo_white.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 80px;
+	height: 20px;
+}
+
+/* highlight-box の content 内のロゴは非表示 */
+section.highlight-box .content::before {
+	display: none;
+}
+
+/* ロゴの固定配置 */
+section img.logo {
+	position: absolute !important;
+	bottom: 20px !important;
+	right: 20px !important;
+	width: 100px !important;
+	margin: 0 !important;
+}
+
+/* 緑背景のセクション */
+section.title,
+section.highlight,
+section.highlight-box {
+	background: var(--newmo-primary);
+}
+
+/* 緑背景時の文字色 */
+section.title h1,
+section.title h2,
+section.title h3,
+section.title h4,
+section.title h5,
+section.title p,
+section.highlight h1,
+section.highlight h2,
+section.highlight h3,
+section.highlight h4,
+section.highlight h5,
+section.highlight p {
+	color: var(--newmo-background);
 }
 
 section.title {
@@ -26,8 +120,6 @@ section.title {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background: var(--newmo-primary);
-	color: var(--newmo-background);
 	padding: 0;
 }
 
@@ -48,12 +140,11 @@ section.highlight-box {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	background: var(--newmo-primary);
+	padding: 0;
 }
 
 section.highlight {
 	color: var(--newmo-background);
-	padding: 0;
 }
 
 section.highlight h1,
@@ -145,21 +236,4 @@ code {
 	color: var(--newmo-secondary);
 	padding: 0.2em 0.4em;
 	border-radius: 4px;
-}
-
-footer {
-	position: absolute;
-	bottom: 10px;
-	left: 20px;
-	color: var(--newmo-gray);
-	font-size: 0.6em;
-}
-
-section::after {
-	content: attr(data-marpit-pagination);
-	position: absolute;
-	bottom: 10px;
-	right: 20px;
-	color: var(--newmo-gray);
-	font-size: 0.6em;
 }
