@@ -143,26 +143,40 @@ section.highlight {
 
 /* ハイライトボックスセクション */
 section.highlight-box {
-	padding: 20px 40px;
+    padding: 20px 40px;
+    background: var(--newmo-primary);
 }
 
-section.highlight-box .content {
-	background: white;
-	border-radius: 50px;
-	width: 94%;
-	height: 94%;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	padding: 0 40px;
+section.highlight-box > div {
+    background: white;
+    border-radius: 50px;
+    width: 94%;
+    height: 94%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 40px;
+}
+
+section.highlight-box > div h1 {
+    color: var(--newmo-primary);
+    font-size: 2.8em;
+    margin: 0 0 0.5em 0;
+}
+
+section.highlight-box > div p {
+    font-size: 1.4em;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 80%;
 }
 
 /* ハイライトボックス内のロゴ非表示 */
-section.highlight-box .content::before {
-	display: none;
+section.highlight-box > div::before {
+    display: none;
 }
 
 /**
