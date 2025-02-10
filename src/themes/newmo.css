@@ -50,11 +50,15 @@ section::after {
 	font-size: 0.6em;
 }
 
+/* タイトルスライドのページ番号を非表示 */
+section.title::after {
+	display: none;
+}
+
 /* 緑背景時のフッター色変更 */
 section.title footer,
 section.highlight footer,
 section.highlight-box footer,
-section.title::after,
 section.highlight::after,
 section.highlight-box::after {
 	color: var(--newmo-background);
