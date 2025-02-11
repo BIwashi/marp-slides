@@ -10,11 +10,11 @@
  * カラー変数の定義
  * ---------------------------------------- */
 :root {
-	--newmo-primary: #00a724;    /* メインカラー（緑） */
-	--newmo-secondary: #111111;   /* サブカラー（黒） */
-	--newmo-background: #ffffff;  /* 背景色（白） */
-	--newmo-text: #111111;       /* 本文テキスト色 */
-	--newmo-gray: #666666;       /* グレー（フッターなど） */
+	--newmo-primary: #00a724; /* メインカラー（緑） */
+	--newmo-secondary: #111111; /* サブカラー（黒） */
+	--newmo-background: #ffffff; /* 背景色（白） */
+	--newmo-text: #111111; /* 本文テキスト色 */
+	--newmo-gray: #666666; /* グレー（フッターなど） */
 	--newmo-light-gray: #f5f5f5; /* 薄いグレー（コードブロックなど） */
 }
 
@@ -28,6 +28,29 @@ section {
 	padding: 40px;
 	line-height: 1.5;
 	position: relative;
+}
+
+/* 通常のテキスト */
+section p,
+section li {
+	font-size: 0.9em;
+	line-height: 1.6;
+	margin: 0.8em 0;
+}
+
+.profile-icon {
+	position: absolute;
+	width: 400px;
+	right: 70px;
+	bottom: 140px;
+}
+
+.qrcode {
+	position: absolute;
+	position: absolute;
+	width: 150px;
+	right: 400px;
+	bottom: 50px;
 }
 
 /**
@@ -60,8 +83,27 @@ section.title footer,
 section.highlight footer,
 section.highlight-box footer,
 section.highlight::after,
-section.highlight-box::after {
+section.highlight-box::after,
+section.title header,
+section.highlight header,
+section.highlight-box header {
 	color: var(--newmo-background);
+}
+
+/* ヘッダーのスタイル */
+header {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	color: var(--newmo-gray);
+	font-size: 0.6em;
+}
+
+/* highlight-box セクションでヘッダーを非表示 */
+section.highlight-box header,
+section.highlight header,
+section.title header {
+	display: none;
 }
 
 /**
@@ -69,8 +111,8 @@ section.highlight-box::after {
  * ---------------------------------------- */
 /* 白背景時のロゴ（黒） */
 section:not(.title):not(.highlight):not(.highlight-box)::before {
-	content: '';
-	background-image: url('../themes/images/newmo_logo_black.png');
+	content: "";
+	background-image: url("../themes/images/newmo_logo_black.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -83,8 +125,8 @@ section:not(.title):not(.highlight):not(.highlight-box)::before {
 /* 緑背景時のロゴ（白） - 通常サイズ */
 section.highlight::before,
 section.highlight-box::before {
-	content: '';
-	background-image: url('../themes/images/newmo_logo_white.png');
+	content: "";
+	background-image: url("../themes/images/newmo_logo_white.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -96,8 +138,8 @@ section.highlight-box::before {
 
 /* タイトルスライドのロゴ（白） - 大きいサイズ */
 section.title::before {
-	content: '';
-	background-image: url('../themes/images/newmo_logo_white.png');
+	content: "";
+	background-image: url("../themes/images/newmo_logo_white.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -115,7 +157,7 @@ section.title::before {
 section.title,
 section.highlight,
 section.highlight-box {
-    background: var(--newmo-primary);
+	background: var(--newmo-primary);
 }
 
 /* 緑背景時の文字色 */
@@ -131,7 +173,7 @@ section.highlight h3,
 section.highlight h4,
 section.highlight h5,
 section.highlight p {
-    color: var(--newmo-background);
+	color: var(--newmo-background);
 }
 
 /**
@@ -160,40 +202,40 @@ section.highlight {
 
 /* ハイライトボックスセクション */
 section.highlight-box {
-    padding: 20px 40px;
-    background: var(--newmo-primary);
+	padding: 20px 40px;
+	background: var(--newmo-primary);
 }
 
 section.highlight-box > div {
-    background: white;
-    border-radius: 50px;
-    width: 94%;
-    height: 94%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 40px;
+	background: white;
+	border-radius: 50px;
+	width: 94%;
+	height: 94%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 0 40px;
 }
 
 section.highlight-box > div h1 {
-    color: var(--newmo-primary);
-    font-size: 2.8em;
-    margin: 0 0 0.5em 0;
+	color: var(--newmo-primary);
+	font-size: 2.8em;
+	margin: 0 0 0.5em 0;
 }
 
 section.highlight-box > div p {
-    font-size: 1.4em;
-    line-height: 1.6;
-    margin: 0;
-    max-width: 80%;
+	font-size: 1.4em;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 80%;
 }
 
 /* ハイライトボックス内のロゴ非表示 */
 section.highlight-box > div::before {
-    display: none;
+	display: none;
 }
 
 /**
@@ -212,25 +254,64 @@ section.split {
 /* 見出し */
 h1 {
 	color: var(--newmo-primary);
-	font-size: 2.5em;
+	font-size: 2.0em;
 	font-weight: 700;
 	margin-bottom: 0.5em;
 }
 
 h2 {
 	color: var(--newmo-secondary);
-	font-size: 1.8em;
+	font-size: 1.5em;
 	font-weight: 700;
+}
+
+h2 strong {
+	color: var(--newmo-primary);
 }
 
 h3 {
 	color: var(--newmo-secondary);
-	font-size: 1.4em;
+	font-size: 1.2em;
 	font-weight: 500;
 }
 
+h3 strong {
+	color: var(--newmo-primary);
+}
+
+h4 {
+	color: var(--newmo-secondary);
+	font-size: 1.0em;
+	font-weight: 500;
+}
+
+h4 strong {
+	color: var(--newmo-primary);
+}
+
+h5 {
+	color: var(--newmo-secondary);
+	font-size: 0.8em;
+	font-weight: 500;
+}
+
+h5 strong {
+	color: var(--newmo-primary);
+}
+
+h6 {
+	color: var(--newmo-secondary);
+	font-size: 0.6em;
+	font-weight: 500;
+}
+
+h6 strong {
+	color: var(--newmo-primary);
+}
+
 /* リスト */
-ul, ol {
+ul,
+ol {
 	padding-left: 1.5em;
 }
 
@@ -250,4 +331,105 @@ code {
 	color: var(--newmo-secondary);
 	padding: 0.2em 0.4em;
 	border-radius: 4px;
+}
+
+/* コードブロック（複数行） */
+pre {
+	background: var(--newmo-light-gray);
+	border-radius: 8px;
+	padding: 1em;
+	margin: 1em 0;
+	overflow-x: auto;
+}
+
+pre code {
+	background: none;
+	padding: 0;
+	border-radius: 0;
+	font-size: 0.9em;
+	line-height: 1.5;
+}
+
+/* 画像の中央寄せ */
+section img {
+	display: block;
+	margin: 0 auto;
+}
+
+/* 太字テキストのスタイル */
+strong {
+	color: var(--newmo-primary);
+	font-weight: 700;
+}
+
+/* 引用フッター */
+.cite-footer {
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+	color: var(--newmo-gray);
+	font-size: 0.6em;
+	font-style: italic;
+}
+
+/* 引用フッターの位置制御クラス */
+.cite-footer.left {
+	right: auto;
+	left: 20px;
+}
+
+.cite-footer.right {
+	left: auto;
+	right: 20px;
+}
+
+.cite-footer.top {
+	bottom: auto;
+	top: 40px;
+}
+
+.cite-footer.top-left {
+	bottom: auto;
+	top: 40px;
+	right: auto;
+	left: 20px;
+}
+
+.cite-footer.top-right {
+	bottom: auto;
+	top: 40px;
+	right: 20px;
+}
+
+.cite-footer.bottom-left {
+	bottom: 40px;
+	right: auto;
+	left: 20px;
+}
+
+.cite-footer.bottom-right {
+	bottom: 40px;
+	right: 20px;
+}
+
+.cite-footer a {
+	color: var(--newmo-gray);
+	text-decoration: none;
+}
+
+.cite-footer a:hover {
+	text-decoration: underline;
+}
+
+/* 緑背景時の引用フッター色変更 */
+section.title .cite-footer,
+section.highlight .cite-footer,
+section.highlight-box .cite-footer {
+	color: var(--newmo-background);
+}
+
+section.title .cite-footer a,
+section.highlight .cite-footer a,
+section.highlight-box .cite-footer a {
+	color: var(--newmo-background);
 }
