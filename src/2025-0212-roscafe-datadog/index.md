@@ -23,13 +23,12 @@ footer: © 2025 newmo | #roscafe
 # 自己紹介
 
 ## 岩見彰太
-### Software Engineer<br >newmo株式会社<br >
+### Software Engineer @newmo株式会社
 #### Platform Team
 
 CyberAgent → newmo
 
-#### [GitHub: BIwashi](https://github.com/BIwashi)<br >
-#### [X: @B_Sardine](https://x.com/B_Sardine)
+#### [GitHub: BIwashi](https://github.com/BIwashi)<br >[X: @B_Sardine](https://x.com/B_Sardine)
 
 
 ---
@@ -59,15 +58,71 @@ header: 背景
 
 ---
 
-## エラーチャンネルの現状
+## Error Monitor の現状
 
-- 発生したエラーも全て1つ slack のチャンネルに通知
-  - 全てのエラーを一箇所で集約して管理できる
-  - 
+### Log Monitor
+
+- アプリケーションログに対して、クエリした結果を通知
+  - ログレベルをエラーにすべきではないところが残存
+  - Monitor のクエリで `-` を使用して随時に除外
+- クエリにログファセットが多く使用
+  - 使用自体は問題ないが、予約済み属性（e.g. `service`/`env`/`version`）を使用するところも facet になっており保守が大変
+
+```sql
+@gcp.project_id:hoge-dev -@log.attributes.error.message:"hoge が発生しました" 
+-@code:foo ・・・
+```
+
+---
 
 
+## Log Monitor と運用の課題
 
-![bg h:300px right:40%](../images/honaa_surprised.png)
+### **重要度の判定**と**除外**
+  - 開発中はログが発生しても即座に修正まで行えないこともあった
+  - 重要なエラーも軽微なエラーも同一に通知されチャンネルの**流量が増大**
+  - 除外するための**クエリ修正が増加**
+  - <u>適切に**トリアージ**ができていない</u>
+
+### **オーナーシップ**の明確化
+  - エラーが**どのマイクロサービス起因**なのかが分かりにくい
+  - マイクロサービスの**オーナーが確認**するまでは放置されがちに…
+  - <u>適切に**トリアージ**ができていない</u>
+
+
+<img src="../images/honaa_crying.png" class="honaa-crying" >
+
+<style scoped>
+.honaa-crying {
+	position: absolute;
+	right: 120px;
+	bottom: 20px;
+	width: 300px;
+	height: 300px;
+	right: 32px;
+	bottom: 100px;
+}
+</style>
+
+---
+
+<!-- _class: highlight-box -->
+<div>
+
+# 課題
+
+## エラーの適切なトリアージ
+## エラーのオーナーを明確化
+
+
+</div>
+
+---
+
+
+# エラーの適切なトリアージ
+
+- エラー
 
 
 ---
