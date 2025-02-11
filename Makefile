@@ -22,8 +22,29 @@ lint/fix: ## Run biome check fix
 export/pdf: ## Export to PDF ## make export/pdf
 	npx @marp-team/marp-cli@latest -c .marprc.yaml --pdf --allow-local-files
 
+.PHONY: export/index
+export/index: ## Generate index slide ## make export/index
+	@echo "Generating index slide..."
+	@echo '---' > src/index.md
+	@echo 'marp: true' >> src/index.md
+	@echo 'paginate: true' >> src/index.md
+	@echo 'theme: gaia' >> src/index.md
+	@echo '---' >> src/index.md
+	@echo '' >> src/index.md
+	@echo '# スライド一覧' >> src/index.md
+	@echo '' >> src/index.md
+	@for dir in $$(find src -maxdepth 1 -mindepth 1 -type d -not -name "images" -not -name "themes"); do \
+		if [ -f "$$dir/index.md" ]; then \
+			title=$$(grep -m 1 "^#" "$$dir/index.md" | sed 's/^# //'); \
+			if [ -z "$$title" ]; then \
+				title=$$(basename "$$dir"); \
+			fi; \
+			echo "- [$$title](./$$(basename $$dir)/)" >> src/index.md; \
+		fi; \
+	done
+
 .PHONY: export/html
-export/html: ## Export to HTML ## make export/html
+export/html: export/index ## Export to HTML ## make export/html
 	npx @marp-team/marp-cli@latest -c .marprc.yaml --html --allow-local-files --output dist/
 	mkdir -p dist/images dist/themes/images
 	cp -r src/images/* dist/images/
