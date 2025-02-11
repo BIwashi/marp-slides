@@ -1,9 +1,7 @@
 .DEFAULT_GOAL := help
 
-##### TOOLS #####
-
-
 ##### EXPORT #####
+
 .PHONY: export/pdf
 export/pdf: ## Export to PDF ## make export/pdf
 	marp -c .marprc.yaml --pdf --allow-local-files
@@ -35,7 +33,7 @@ clean/images: ## Clean unused images in slide directories ## make clean/images
 	done
 
 .PHONY: clean/all
-clean: ## Clean ## make clean
+clean/all: ## Clean ## make clean/all
 	rm -rf dist
 
 ##### HELP #####
