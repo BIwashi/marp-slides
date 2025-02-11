@@ -33,15 +33,14 @@ export/index: ## Generate index slide ## make export/index
 	@echo '' >> src/index.md
 	@echo '# スライド一覧' >> src/index.md
 	@echo '' >> src/index.md
-	@for dir in $$(find src -maxdepth 1 -mindepth 1 -type d -not -name "images" -not -name "themes"); do \
-		if [ -f "$$dir/index.md" ]; then \
-			title=$$(grep -m 1 "^#" "$$dir/index.md" | sed 's/^# //'); \
-			if [ -z "$$title" ]; then \
-				title=$$(basename "$$dir"); \
+	@find src -maxdepth 1 -mindepth 1 -type d -not -name "images" -not -name "themes" -print0 | \
+		while IFS= read -r -d '' dir; do \
+			if [ -f "$$dir/index.md" ]; then \
+				title=$$(grep -m 1 "^# " "$$dir/index.md" | sed 's/^# //'); \
+				[ -z "$$title" ] && title=$$(basename "$$dir"); \
+				echo "- [$$title](./$$(basename "$$dir")/)" >> src/index.md; \
 			fi; \
-			echo "- [$$title](./$$(basename $$dir)/)" >> src/index.md; \
-		fi; \
-	done
+		done
 
 .PHONY: export/html
 export/html: export/index ## Export to HTML ## make export/html
