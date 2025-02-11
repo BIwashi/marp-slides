@@ -38,7 +38,14 @@ section li {
 	margin: 0.8em 0;
 }
 
-/* qrcode */
+/* specific image */
+.profile-icon {
+    width: 400px;
+    float: right;
+    margin-right: 40px;
+    margin-top: -20px;
+}
+
 .qrcode {
 	position: absolute;
 	right: 120px;
@@ -46,7 +53,7 @@ section li {
 	width: 150px;
 	height: 150px;
 	right: 32px;
-	bottom: 70px;
+	bottom: 100px;
 }
 
 
@@ -277,4 +284,10 @@ code {
 	color: var(--newmo-secondary);
 	padding: 0.2em 0.4em;
 	border-radius: 4px;
+}
+
+/* 太字テキストのスタイル */
+strong {
+	color: var(--newmo-primary);
+	font-weight: 700;
 }
