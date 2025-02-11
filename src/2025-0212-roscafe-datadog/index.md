@@ -16,20 +16,8 @@ footer: © 2025 newmo | #roscafe
 ---
 
 
-<style scoped>
-  .profile-icon {
-    width: 400px;
-    float: right;
-    margin-right: 20px;
-    margin-top: -20px;
-  }
-</style>
-
 <img src="../images/shota.jpeg" class="profile-icon"  />
-
-
-<img class="qrcode" src="../images/qr-shota.png">
-
+<img src="../images/qr-shota.png" class="qrcode" >
 
 
 # 自己紹介
@@ -40,12 +28,9 @@ footer: © 2025 newmo | #roscafe
 
 CyberAgent → newmo
 
-#### [GitHub: BIwashi](https://github.com/BIwashi)<br >[X: @B_Sardine](https://x.com/B_Sardine)
+#### [GitHub: BIwashi](https://github.com/BIwashi)<br >
+#### [X: @B_Sardine](https://x.com/B_Sardine)
 
-<!-- <img src="../images/shota.jpeg" class="profile-image" />
-<img src="../images/qr-shota.png" class="qrcode" />
-
-</div> -->
 
 ---
 
@@ -54,16 +39,44 @@ CyberAgent → newmo
 
 # 本日のテーマ
 
-モノレポ開発における
-エラー管理とトリアージの最適化
+## モノレポ開発における<br >エラー管理とトリアージの最適化
 
 </div>
 
 ---
 
+<!--
+header: 背景
+-->
+
+## Monorepo Development
+- newmo では**モノレポ**で開発を行っている
+  - 全てのアプリケーションやマイクロサービスの全コードを単一のリポジトリで管理
+  - マイクロサービスとしての**独立性**を維持
+  - 開発効率と保守性の両立
+
+![bg h:300px right:40%](../images/honaa_surprised.png)
+
+---
+
+## エラーチャンネルの現状
+
+- 発生したエラーも全て1つ slack のチャンネルに通知
+  - 全てのエラーを一箇所で集約して管理できる
+  - 
+
+
+
+![bg h:300px right:40%](../images/honaa_surprised.png)
+
+
+---
+
+
+
 <!-- _class: split -->
 
-![](https://placehold.jp/00a724/ffffff/500x300.png)
+<!-- ![](https://placehold.jp/00a724/ffffff/500x300.png) -->
 
 # モノレポ開発とは
 
