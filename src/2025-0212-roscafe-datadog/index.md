@@ -228,6 +228,8 @@ header: Error Tracking
 ![bg h:500px right:65%](./images/2025-02-11-16-18-02-69.png)
 
 
+<div class="cite-footer left">引用: <a href="https://docs.datadoghq.com/ja/logs/error_tracking/backend">Datadog Error Tracking Backend</a></div>
+
 ---
 
 ## Issue
@@ -322,11 +324,15 @@ Datadog は以下の条件で自動的に Issue の Status を **For Review** ->
 ![w:800px](./images/2025-02-11-17-22-04-15.png)
 
 
+<div class="cite-footer left">引用: <a href="https://www.datadoghq.com/ja/product/error-tracking/">Error Tracking | Datadog</a></div>
+
+
 ---
 
 
 ![](./images/2025-02-11-17-23-01-02.png)
 
+<div class="cite-footer left">引用: <a href="https://docs.datadoghq.com/ja/error_tracking/issue_states/">Issue States in Error Tracking</a></div>
 
 ---
 
@@ -414,24 +420,24 @@ header: オーナーを明確化
 
 ---
 
-## マイクロサービス開発メンバーの<br >Slack ユーザーグループにメンションをしたい
+## マイクロサービス開発メンバーの<br >**Slack ユーザーグループ**に**メンション**をしたい
 
-- アラートチャンネルには、全てのマイクロサービスのエラーが通知される
+- アラートチャンネルには、**全てのマイクロサービスのエラー**が通知される
 - マイクロサービスごとにチャンネルを分けることもできるが、まだそれをやるまでの規模ではない
   - せっかく Monorepo なので、チャンネルもできるだけ分割しないで進めたい
-  - 開発メンバーも流動的に移動している
-  - オーナーメンバーがトリアージできていなかった場合はエスカレーションしたい
-- マイクロサービス開発メンバーの Slack ユーザーグループにメンションをしたい
-  - Error Tracking の Issue の service（マイクロサービス単位）
+  - **開発メンバーも流動的に移動**している
+  - オーナーメンバーがトリアージできていなかった場合は**エスカレーション**したい
+- マイクロサービス開発メンバーの **Slack ユーザーグループにメンションをしたい**
+  - Error Tracking の **Issue の service（マイクロサービス単位）ごと**
 
 
 ---
 
 ## 問題
 
-- Datadog の Monitor での Slack ユーザーグループへの通知はグループ ID を指定する必要がある
-  - `<!subteam^GROUP_ID>` という形式で指定する必要がある
-  - `log.attributes.service` でマイクロサービス名が特定できているが、そこに紐づくグループ ID がないので、メンションできない
+- Datadog の Monitor での Slack ユーザーグループへの通知は**グループ ID** を指定する必要がある
+  - **`<!subteam^GROUP_ID>`** という形式で指定する必要がある
+  - `log.attributes.service` でマイクロサービス名が特定できているが、**そこに紐づくグループ ID がないの**で、メンションできない
 
 
 ---

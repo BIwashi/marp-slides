@@ -1,5 +1,11 @@
 .DEFAULT_GOAL := help
 
+##### RUN #####
+
+.PHONY: run/marp
+run/marp: ## Run Marp ## make run/marp
+	marp -s .
+
 ##### EXPORT #####
 
 .PHONY: export/pdf

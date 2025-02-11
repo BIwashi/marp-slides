@@ -361,3 +361,75 @@ strong {
 	color: var(--newmo-primary);
 	font-weight: 700;
 }
+
+/* 引用フッター */
+.cite-footer {
+	position: absolute;
+	bottom: 40px;
+	right: 20px;
+	color: var(--newmo-gray);
+	font-size: 0.6em;
+	font-style: italic;
+}
+
+/* 引用フッターの位置制御クラス */
+.cite-footer.left {
+	right: auto;
+	left: 20px;
+}
+
+.cite-footer.right {
+	left: auto;
+	right: 20px;
+}
+
+.cite-footer.top {
+	bottom: auto;
+	top: 40px;
+}
+
+.cite-footer.top-left {
+	bottom: auto;
+	top: 40px;
+	right: auto;
+	left: 20px;
+}
+
+.cite-footer.top-right {
+	bottom: auto;
+	top: 40px;
+	right: 20px;
+}
+
+.cite-footer.bottom-left {
+	bottom: 40px;
+	right: auto;
+	left: 20px;
+}
+
+.cite-footer.bottom-right {
+	bottom: 40px;
+	right: 20px;
+}
+
+.cite-footer a {
+	color: var(--newmo-gray);
+	text-decoration: none;
+}
+
+.cite-footer a:hover {
+	text-decoration: underline;
+}
+
+/* 緑背景時の引用フッター色変更 */
+section.title .cite-footer,
+section.highlight .cite-footer,
+section.highlight-box .cite-footer {
+	color: var(--newmo-background);
+}
+
+section.title .cite-footer a,
+section.highlight .cite-footer a,
+section.highlight-box .cite-footer a {
+	color: var(--newmo-background);
+}
