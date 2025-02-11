@@ -109,6 +109,13 @@ header {
 	font-size: 0.6em;
 }
 
+/* highlight-box セクションでヘッダーを非表示 */
+section.highlight-box header,
+section.highlight header,
+section.title header {
+	display: none;
+}
+
 /**
  * ロゴの配置
  * ---------------------------------------- */
@@ -244,65 +251,11 @@ section.highlight-box > div::before {
 /**
  * 分割レイアウト
  * ---------------------------------------- */
-/* 基本の2分割レイアウト */
 section.split {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 40px;
 	align-items: center;
-}
-
-/* 左側が大きい分割（60:40） */
-section.split-left {
-	display: grid;
-	grid-template-columns: 6fr 4fr;
-	gap: 40px;
-	align-items: center;
-}
-
-/* 右側が大きい分割（40:60） */
-section.split-right {
-	display: grid;
-	grid-template-columns: 4fr 6fr;
-	gap: 40px;
-	align-items: center;
-}
-
-/* 3分割レイアウト */
-section.split-3 {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 30px;
-	align-items: start;
-}
-
-/* グリッドアイテムの配置調整用 */
-.grid-center {
-	justify-self: center;
-	text-align: center;
-}
-
-.grid-start {
-	justify-self: start;
-	text-align: left;
-}
-
-.grid-end {
-	justify-self: end;
-	text-align: right;
-}
-
-/* 垂直方向の配置調整 */
-.align-top {
-	align-self: start;
-}
-
-.align-bottom {
-	align-self: end;
-}
-
-.align-center {
-	align-self: center;
 }
 
 /**

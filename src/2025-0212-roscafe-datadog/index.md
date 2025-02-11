@@ -28,7 +28,9 @@ footer: © 2025 newmo | #roscafe
 
 CyberAgent → newmo
 
-#### [GitHub: BIwashi](https://github.com/BIwashi)<br >[X: @B_Sardine](https://x.com/B_Sardine)
+##### 好きな Datadog の機能：Error Tracking
+
+##### [GitHub: BIwashi](https://github.com/BIwashi)<br >[X: @B_Sardine](https://x.com/B_Sardine)
 
 
 ---
@@ -126,7 +128,7 @@ header: 課題
 
 <!-- _class: split -->
 
-## エラーの適切なトリアージ<br ><br >
+## エラーの適切なトリアージ<br ><br ><br >
 
 - エラーを適切に選別する
   - エラーを種類ごとに分類
@@ -134,7 +136,7 @@ header: 課題
 - 通知対象から適切に除外
   - エラー単位で除外
 
-## エラーのオーナーを明確化<br ><br >
+## エラーのオーナーを明確化<br ><br ><br >
 
 - 適切にマイクロサービスを特定
   - attribute を適切に指定
@@ -146,7 +148,7 @@ header: 課題
 
 <!-- _class: split -->
 
-## エラーの適切なトリアージ<br >**Error Tracking**
+## エラーの適切なトリアージ<br >**Error Tracking**<br >**Case Management**
 
 - エラーを適切に選別する
   - エラーを種類ごとに分類
@@ -154,7 +156,7 @@ header: 課題
 - 通知対象から適切に除外
   - エラー単位で除外
 
-## エラーのオーナーを明確化<br >**Reference Table**
+## エラーのオーナーを明確化<br >**Reference Table**<br >**Log Pipeline**
 
 - 適切にマイクロサービスを特定
   - attribute を適切に指定
@@ -162,6 +164,19 @@ header: 課題
   - Error Message やグループメンションを活用
 
 ---
+
+
+<!-- _class: highlight-box -->
+<div>
+
+# エラーの適切なトリアージ
+
+## Error Tracking<br >Case Management
+
+</div>
+
+---
+
 
 <!--
 header: Error Tracking
@@ -251,114 +266,96 @@ header: Error Tracking
 
 ## New Issue の対象
 
-- New Issue の対象は<br>**Issue のステータスが For Review のもの**
+- New Issue の対象は新規発生した or リグレッションした Issue のみ
+  - リグレッション：一度 Resolved になった Issue が再発した時
+
+## Automatic resolution
+
+Datadog は以下の条件で自動的に Issue の Status を **For Review** -> **Resolved** に変更する
+
+- 最後に issue の error が発生したのが**14日以上**前のバージョンで新しいバージョンで同様のエラーが発生していない
+- もし `version` tag が存在してないなかった場合、**14日以内**にその issue にエラーが発生していない場合
+
+
+
+---
+
+## Regression Detection
+
+- 一度 Resolved になった Issue が再発した時に自動で **For Review** に変更
+- Regression というタグがつけられる
+
+![w:800px](./images/2025-02-11-17-22-04-15.png)
 
 
 ---
 
 
-<!-- _class: split -->
+![](./images/2025-02-11-17-23-01-02.png)
 
-<!-- ![](https://placehold.jp/00a724/ffffff/500x300.png) -->
-
-# モノレポ開発とは
-
-- 全てのコードを単一のリポジトリで管理
-- マイクロサービスとしての独立性を維持
-- 開発効率と保守性の両立
 
 ---
 
-# 課題：エラー管理の複雑さ
 
-### エラーのオーナーシップが不明確
-- 複数のマイクロサービス
-- チーム間の責任範囲
-- エスカレーションの難しさ
+## Case Management
 
-### アラート疲れ
-- 過剰な通知
-- チャンネルの分散
-- 優先度の判断
+- チケットを作成して、Issue を管理
+- Error Tracking と連携して、Error Issue に紐づいた Case を作成可能
+- エラー発生理由や紐づくチケットなどを記載可能
+
+![bg w:700 right:55%](./images/2025-02-11-17-36-51-34.png)
 
 ---
-
-<!-- _class: split -->
-
-# Error Tracking の活用
-
-![](https://placehold.jp/00a724/ffffff/400x500.png)
-
-- Status管理による優先度付け
-- Regressionの自動検知
-- Issue/Case Managementとの連携
-
----
-
 <!-- _class: highlight -->
 
-# 解決策：Reference Table
-
-### Service Name
-### ↓
-### Slack Group ID
-### ↓
-### 適切なチームへの通知
+# トリアージの流れ
 
 ---
 
-<!-- _class: split -->
+## 1. Slack の通知を確認
 
-![](https://placehold.jp/00a724/ffffff/400x300.png)
+- Slack の通知を確認
+- Error 内容の概要を確認して、Issue ページに飛ぶ
 
-# Reference Table の活用
-
-- サービス名とチームの紐付け
-- GitHub Actions による自動更新
-- GCSを活用したデータ管理
+![bg w:700 right:55%](./images/2025-02-11-17-41-03-10.png)
 
 ---
 
-# 実装のポイント
+## 2. Issue を確認
 
-### 1. CSV管理
-- GitHubでマッピング情報を管理
-- PRベースでの更新フロー
+- message や stack trace などから原因を特定
+- 状況によって **Status** を<br >変更
 
-### 2. 自動更新の仕組み
-- GitHub Actions
-- GCS連携
-- Datadogとの同期
-
-### 3. モニタリング設定
-- Reference Tableの活用
-- 適切なメンション設定
+![bg w:800 right:65%](./images/2025-02-11-16-26-39-21.png)
 
 ---
 
-<!-- _class: highlight-box -->
-<div>
+- **原因が特定でき、修正が必要そうな場合**
+  - `REVIEWED` に変更（14日間は通知が来ません）
+  - Actions → Create a case で case を作成して、修正用の Liner のチケットを張るなどして紐づけておく
 
-# 今後の展望
+- **原因が特定できず、かつ発生頻度が非常に少ない場合**
+  - `RESOLVED` に変更（再度発生したら即座に regression として通知される）
+  - Actions → Create a case で case を作成して、発生条件やなぜ一旦放置としたかなどの理由をメモとして記載しておく
 
-- Terraform による Monitor 管理
-- Slack User Group の IaC 化
-- OpenTelemetry との統合
-
-</div>
+- **原因も特定できているが、基本的に直す予定がない場合**
+  - `IGNORED` に変更（今後 error tracking 関係の Monitor の対象外になる）
+  - Actions → Create a case で case を作成して、放置理由を記載する
 
 ---
 
-# まとめ
+## 3. Case を作成
 
-### 1. エラー管理の一元化
-- 単一チャンネルでの管理
-- オーナーシップの明確化
+- エラーの原因や修正方法などを記載
+- チケットを作成して、修正用のチケットを張るなどして紐づけておく
 
-### 2. 適切なエスカレーション
-- 自動的なチーム振り分け
-- 優先度に基づくトリアージ
+![bg w:800 right:65%](./images/2025-02-11-18-42-27-58.png)
 
-### 3. 保守性の向上
-- コード化された設定
-- 自動化された更新フロー
+---
+
+![w:700px](./images/2025-02-11-18-38-02-12.png)
+
+---
+
+
+
