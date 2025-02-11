@@ -10,11 +10,11 @@
  * カラー変数の定義
  * ---------------------------------------- */
 :root {
-	--newmo-primary: #00a724;    /* メインカラー（緑） */
-	--newmo-secondary: #111111;   /* サブカラー（黒） */
-	--newmo-background: #ffffff;  /* 背景色（白） */
-	--newmo-text: #111111;       /* 本文テキスト色 */
-	--newmo-gray: #666666;       /* グレー（フッターなど） */
+	--newmo-primary: #00a724; /* メインカラー（緑） */
+	--newmo-secondary: #111111; /* サブカラー（黒） */
+	--newmo-background: #ffffff; /* 背景色（白） */
+	--newmo-text: #111111; /* 本文テキスト色 */
+	--newmo-gray: #666666; /* グレー（フッターなど） */
 	--newmo-light-gray: #f5f5f5; /* 薄いグレー（コードブロックなど） */
 }
 
@@ -29,6 +29,26 @@ section {
 	line-height: 1.5;
 	position: relative;
 }
+
+/* 通常のテキスト */
+section p,
+section li {
+	font-size: 0.9em;
+	line-height: 1.6;
+	margin: 0.8em 0;
+}
+
+/* qrcode */
+.qrcode {
+	position: absolute;
+	right: 120px;
+	bottom: 20px;
+	width: 150px;
+	height: 150px;
+	right: 32px;
+	bottom: 70px;
+}
+
 
 /**
  * フッターとページ番号
@@ -69,8 +89,8 @@ section.highlight-box::after {
  * ---------------------------------------- */
 /* 白背景時のロゴ（黒） */
 section:not(.title):not(.highlight):not(.highlight-box)::before {
-	content: '';
-	background-image: url('../themes/images/newmo_logo_black.png');
+	content: "";
+	background-image: url("../themes/images/newmo_logo_black.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -83,8 +103,8 @@ section:not(.title):not(.highlight):not(.highlight-box)::before {
 /* 緑背景時のロゴ（白） - 通常サイズ */
 section.highlight::before,
 section.highlight-box::before {
-	content: '';
-	background-image: url('../themes/images/newmo_logo_white.png');
+	content: "";
+	background-image: url("../themes/images/newmo_logo_white.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -96,8 +116,8 @@ section.highlight-box::before {
 
 /* タイトルスライドのロゴ（白） - 大きいサイズ */
 section.title::before {
-	content: '';
-	background-image: url('../themes/images/newmo_logo_white.png');
+	content: "";
+	background-image: url("../themes/images/newmo_logo_white.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -115,7 +135,7 @@ section.title::before {
 section.title,
 section.highlight,
 section.highlight-box {
-    background: var(--newmo-primary);
+	background: var(--newmo-primary);
 }
 
 /* 緑背景時の文字色 */
@@ -131,7 +151,7 @@ section.highlight h3,
 section.highlight h4,
 section.highlight h5,
 section.highlight p {
-    color: var(--newmo-background);
+	color: var(--newmo-background);
 }
 
 /**
@@ -160,40 +180,40 @@ section.highlight {
 
 /* ハイライトボックスセクション */
 section.highlight-box {
-    padding: 20px 40px;
-    background: var(--newmo-primary);
+	padding: 20px 40px;
+	background: var(--newmo-primary);
 }
 
 section.highlight-box > div {
-    background: white;
-    border-radius: 50px;
-    width: 94%;
-    height: 94%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 40px;
+	background: white;
+	border-radius: 50px;
+	width: 94%;
+	height: 94%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 0 40px;
 }
 
 section.highlight-box > div h1 {
-    color: var(--newmo-primary);
-    font-size: 2.8em;
-    margin: 0 0 0.5em 0;
+	color: var(--newmo-primary);
+	font-size: 2.8em;
+	margin: 0 0 0.5em 0;
 }
 
 section.highlight-box > div p {
-    font-size: 1.4em;
-    line-height: 1.6;
-    margin: 0;
-    max-width: 80%;
+	font-size: 1.4em;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 80%;
 }
 
 /* ハイライトボックス内のロゴ非表示 */
 section.highlight-box > div::before {
-    display: none;
+	display: none;
 }
 
 /**
@@ -212,25 +232,32 @@ section.split {
 /* 見出し */
 h1 {
 	color: var(--newmo-primary);
-	font-size: 2.5em;
+	font-size: 2.0em;
 	font-weight: 700;
 	margin-bottom: 0.5em;
 }
 
 h2 {
 	color: var(--newmo-secondary);
-	font-size: 1.8em;
+	font-size: 1.5em;
 	font-weight: 700;
 }
 
 h3 {
 	color: var(--newmo-secondary);
-	font-size: 1.4em;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+
+h4 {
+	color: var(--newmo-secondary);
+	font-size: 1.0em;
 	font-weight: 500;
 }
 
 /* リスト */
-ul, ol {
+ul,
+ol {
 	padding-left: 1.5em;
 }
 

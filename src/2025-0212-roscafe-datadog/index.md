@@ -11,7 +11,41 @@ footer: © 2025 newmo | #roscafe
 
 ##### newmo株式会社<br>岩見彰太
 
-##### github:@BIwashi<br>x:@B_Sardine
+##### github: @BIwashi<br>x: @B_Sardine
+
+---
+
+
+<style scoped>
+  .profile-icon {
+    width: 400px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -20px;
+  }
+</style>
+
+<img src="../images/shota.jpeg" class="profile-icon"  />
+
+
+<img class="qrcode" src="../images/qr-shota.png">
+
+
+
+# 自己紹介
+
+## 岩見彰太
+### Software Engineer<br >newmo株式会社<br >
+#### Platform Team
+
+CyberAgent → newmo
+
+#### [GitHub: BIwashi](https://github.com/BIwashi)<br >[X: @B_Sardine](https://x.com/B_Sardine)
+
+<!-- <img src="../images/shota.jpeg" class="profile-image" />
+<img src="../images/qr-shota.png" class="qrcode" />
+
+</div> -->
 
 ---
 
