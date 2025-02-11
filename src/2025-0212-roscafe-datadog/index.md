@@ -156,7 +156,7 @@ header: 課題
 - 通知対象から適切に除外
   - エラー単位で除外
 
-## エラーのオーナーを明確化<br >**Reference Table**<br >**Log Pipeline**
+## エラーのオーナーを明確化<br >**Reference Tables**<br >**Log Pipeline**
 
 - 適切にマイクロサービスを特定
   - attribute を適切に指定
@@ -182,7 +182,7 @@ header: 課題
 header: Error Tracking
 -->
 
-## Error Tracking for Log
+## Error Tracking
 - エラーログに含まれている特定の attibutes を元に Datadog がエラーを選別
   - `error.message` 
   - `error.stack`
@@ -296,6 +296,10 @@ Datadog は以下の条件で自動的に Issue の Status を **For Review** ->
 
 ---
 
+<!--
+header: Case Management
+-->
+
 
 ## Case Management
 
@@ -307,6 +311,10 @@ Datadog は以下の条件で自動的に Issue の Status を **For Review** ->
 
 ---
 <!-- _class: highlight -->
+
+<!--
+header: トリアージ
+-->
 
 # トリアージの流れ
 
@@ -357,5 +365,106 @@ Datadog は以下の条件で自動的に Issue の Status を **For Review** ->
 
 ---
 
+<!-- _class: highlight-box -->
+<div>
 
+# エラーのオーナーを明確化
+
+## Reference Tables<br >Log Pipeline
+
+</div>
+
+<!--
+header: オーナーを明確化オーナーを明確化
+-->
+
+---
+
+## マイクロサービス開発メンバーの<br >Slack ユーザーグループにメンションをしたい
+
+- アラートチャンネルには、全てのマイクロサービスのエラーが通知される
+- マイクロサービスごとにチャンネルを分けることもできるが、まだそれをやるまでの規模ではない
+  - せっかく Monorepo なので、チャンネルもできるだけ分割しないで進めたい
+  - 開発メンバーも流動的に移動している
+  - オーナーメンバーがトリアージできていなかった場合はエスカレーションしたい
+- マイクロサービス開発メンバーの Slack ユーザーグループにメンションをしたい
+  - Error Tracking の Issue の service（マイクロサービス単位）
+
+
+---
+
+## 問題
+
+- Datadog の Monitor での Slack ユーザーグループへの通知はグループ ID を指定する必要がある
+  - `<!subteam^GROUP_ID>` という形式で指定する必要がある
+  - `log.attributes.service` でマイクロサービス名が特定できているが、そこに紐づくグループ ID がないので、メンションできない
+
+
+---
+
+<!--
+header: Reference Tables
+-->
+
+## Reference Tables
+
+- Datdog にすでにある情報に<br >**メタデータを追加**することができる
+- **csv** 形式で指定
+- データソースは直接 Upload 以外にも、**S3 / GCS / Azure Storage** を指定可能
+
+
+![bg w:700 right:55%](./images/2025-02-11-19-18-31-15.png)
+
+
+---
+
+
+## Reference Tables で Slack User Group ID を紐付ける
+
+- csv に紐付けを記載
+- csv は github で管理
+  - 変更されたら GCS を更新
+  - 更新された csv を Datadog が自動反映
+
+```csv
+service,id,name
+component.hoge,aaaabbbb1234,alert-server-component-hoge
+component.fuga,cccdddd4567,alert-server-component-fuga
+component.piyo,eeefff8901,alert-server-component-piyo
+.
+.
+.
+```
+
+![bg w:600 right:50%](./images/2025-02-11-19-36-38-43.png)
+
+
+---
+
+## Lookup Processor で Reference Tables を指定
+
+- ログの `service.name` から Slack User Group ID を反映
+- ログに Slack User Group ID が含まれるようになる
+
+![bg w:600 right:50%](./images/2025-02-11-19-43-05-49.png)
+
+---
+
+## Monitor の Message で指定
+
+- ログの attributes に group id が追加されているのでそれを指定
+
+![bg w:600 right:50%](./images/2025-02-11-19-50-51-86.png)
+
+---
+
+## 動的にメンションする<br >Slack User Group を変更
+
+![bg w:670 right:54%](./images/2025-02-11-19-55-04-26.png)
+
+---
+
+## メンションされる Slack チャンネルを指定
+
+![w:800px](./images/2025-02-11-19-57-20-33.png)
 
