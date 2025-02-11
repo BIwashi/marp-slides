@@ -4,7 +4,7 @@
 
 .PHONY: run/marp
 run/marp: ## Run Marp ## make run/marp
-	marp -s .
+	npx @marp-team/marp-cli@latest -s .
 
 ##### LINT #####
 
@@ -20,11 +20,11 @@ lint/fix: ## Run biome check fix
 
 .PHONY: export/pdf
 export/pdf: ## Export to PDF ## make export/pdf
-	marp -c .marprc.yaml --pdf --allow-local-files
+	npx @marp-team/marp-cli@latest -c .marprc.yaml --pdf --allow-local-files
 
 .PHONY: export/html
 export/html: ## Export to HTML ## make export/html
-	marp -c .marprc.yaml --html --allow-local-files --output dist/
+	npx @marp-team/marp-cli@latest -c .marprc.yaml --html --allow-local-files --output dist/
 	mkdir -p dist/images dist/themes/images
 	cp -r src/images/* dist/images/
 	cp -r src/themes/images/* dist/themes/images/
