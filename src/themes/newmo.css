@@ -49,10 +49,10 @@ section li {
 
 /* specific image */
 .profile-icon {
-    width: var(--profile-image-size);
-    float: right;
-    margin-right: var(--profile-margin-right);
-    margin-top: var(--profile-margin-top);
+	width: var(--profile-image-size);
+	float: right;
+	margin-right: var(--profile-margin-right);
+	margin-top: var(--profile-margin-top);
 }
 
 .qrcode {
@@ -93,8 +93,20 @@ section.title footer,
 section.highlight footer,
 section.highlight-box footer,
 section.highlight::after,
-section.highlight-box::after {
+section.highlight-box::after,
+section.title header,
+section.highlight header,
+section.highlight-box header {
 	color: var(--newmo-background);
+}
+
+/* ヘッダーのスタイル */
+header {
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	color: var(--newmo-gray);
+	font-size: 0.6em;
 }
 
 /**
@@ -277,6 +289,26 @@ h4 {
 }
 
 h4 strong {
+	color: var(--newmo-primary);
+}
+
+h5 {
+	color: var(--newmo-secondary);
+	font-size: 0.8em;
+	font-weight: 500;
+}
+
+h5 strong {
+	color: var(--newmo-primary);
+}
+
+h6 {
+	color: var(--newmo-secondary);
+	font-size: 0.6em;
+	font-weight: 500;
+}
+
+h6 strong {
 	color: var(--newmo-primary);
 }
 
