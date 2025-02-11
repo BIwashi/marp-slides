@@ -97,10 +97,7 @@ header: 背景
 <style scoped>
 .honaa-crying {
 	position: absolute;
-	right: 120px;
-	bottom: 20px;
 	width: 300px;
-	height: 300px;
 	right: 32px;
 	bottom: 100px;
 }
@@ -235,8 +232,6 @@ header: Error Tracking
 <style scoped>
 .honaa-on-ride-a {
 	position: absolute;
-	right: 120px;
-	bottom: 20px;
 	width: 500px;
 	right: 32px;
 	bottom: 100px;
@@ -481,10 +476,8 @@ component.piyo,eeefff8901,alert-server-component-piyo
 <style scoped>
 .honaa-on-ride-b {
 	position: absolute;
-	right: 120px;
-	bottom: 20px;
 	width: 350px;
-	right: 32px;
+  right: 32px;
 	bottom: 100px;
 }
 </style>
@@ -511,8 +504,6 @@ component.piyo,eeefff8901,alert-server-component-piyo
 <style scoped>
 .honna-trip {
 	position: absolute;
-	right: 120px;
-	bottom: 20px;
 	width: 300px;
 	right: 32px;
 	bottom: 100px;

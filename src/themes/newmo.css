@@ -16,15 +16,6 @@
 	--newmo-text: #111111; /* 本文テキスト色 */
 	--newmo-gray: #666666; /* グレー（フッターなど） */
 	--newmo-light-gray: #f5f5f5; /* 薄いグレー（コードブロックなど） */
-
-	/* 画像サイズと位置の変数 */
-	--profile-image-size: 400px;
-	--profile-margin-right: 40px;
-	--profile-margin-top: -20px;
-
-	--qrcode-size: 150px;
-	--qrcode-right: 32px;
-	--qrcode-bottom: 100px;
 }
 
 /**
@@ -47,20 +38,19 @@ section li {
 	margin: 0.8em 0;
 }
 
-/* specific image */
 .profile-icon {
-	width: var(--profile-image-size);
-	float: right;
-	margin-right: var(--profile-margin-right);
-	margin-top: var(--profile-margin-top);
+	position: absolute;
+	width: 400px;
+	right: 70px;
+	bottom: 140px;
 }
 
 .qrcode {
 	position: absolute;
-	width: var(--qrcode-size);
-	height: var(--qrcode-size);
-	right: var(--qrcode-right);
-	bottom: var(--qrcode-bottom);
+	position: absolute;
+	width: 150px;
+	right: 400px;
+	bottom: 50px;
 }
 
 /**
