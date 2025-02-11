@@ -468,3 +468,53 @@ component.piyo,eeefff8901,alert-server-component-piyo
 
 ![w:800px](./images/2025-02-11-19-57-20-33.png)
 
+
+---
+
+<!-- _class: highlight-box -->
+<div>
+
+# まとめ
+
+<img src="../images/honaa_on rideB.png" class="honaa-on-ride-b" >
+
+<style scoped>
+.honaa-on-ride-b {
+	position: absolute;
+	right: 120px;
+	bottom: 20px;
+	width: 350px;
+	right: 32px;
+	bottom: 100px;
+}
+</style>
+
+</div>
+
+
+---
+
+# まとめ
+
+## エラーの適切なトリアージ
+- Error Tracking を使用して適切にエラーを選別
+- Status を活用してトリアージ
+- Case Management でエラーの現状とチケットを紐付け
+
+## エラーのオーナーを明確化
+- Reference Tables でマイクロサービス名と Slack User Group ID を紐付け
+- エラーによってメンション先を変えることで、オーナーに適切に通知
+
+
+<img src="../images/honna_trip.png" class="honna-trip" >
+
+<style scoped>
+.honna-trip {
+	position: absolute;
+	right: 120px;
+	bottom: 20px;
+	width: 300px;
+	right: 32px;
+	bottom: 100px;
+}
+</style>
