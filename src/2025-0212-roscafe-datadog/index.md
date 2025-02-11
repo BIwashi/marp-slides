@@ -163,11 +163,99 @@ header: 課題
 
 ---
 
-# Error Tracking
+<!--
+header: Error Tracking
+-->
+
+## Error Tracking for Log
+- エラーログに含まれている特定の attibutes を元に Datadog がエラーを選別
+  - `error.message` 
+  - `error.stack`
+  - `error.kind`
+
+![bg h:500px right:65%](./images/2025-02-11-16-18-02-69.png)
+
+
+---
+
+## Issue
+- エラーは Issue という単位で選別される
+- Status という属性を持っている
+
+![w:800px](./images/2025-02-11-16-26-39-21.png)
+
+
+---
+
+## Issue Status
+
+### 4種類のステータスを持っている
+
+![](./images/2025-02-11-16-51-25-78.png)
 
 
 
 ---
+
+### **For Review**
+
+- 問題が新規発生 or リグレッションして確認が必要な状態
+
+### **Reviewd**
+
+- トリアージ済、現在修正中の状態
+
+### **Ignored**
+
+- 何かアクションする必要がない状態
+- 基本的に Error で表示すべきではないもの
+
+### **Resolved**
+
+- エラーを修正した状態
+
+
+<img src="../images/honaa_on rideA.png" class="honaa-on-ride-a" >
+
+<style scoped>
+.honaa-on-ride-a {
+	position: absolute;
+	right: 120px;
+	bottom: 20px;
+	width: 500px;
+	right: 32px;
+	bottom: 100px;
+}
+</style>
+
+
+
+---
+
+# Monitor の設定
+
+### Logs ではなく Error Tracking
+
+![bg w:650 right:55%](./images/2025-02-11-17-05-45-61.png)
+
+---
+
+# New Issue を選択
+
+### 新規の Issue が<br>**作成 or リグレッション**された時に通知
+
+
+![bg w:650 right:55%](./images/2025-02-11-17-06-49-85.png)
+
+---
+
+## New Issue の対象
+
+- New Issue の対象は<br>**Issue のステータスが For Review のもの**
+
+
+---
+
 
 <!-- _class: split -->
 

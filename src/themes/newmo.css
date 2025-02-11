@@ -244,11 +244,65 @@ section.highlight-box > div::before {
 /**
  * 分割レイアウト
  * ---------------------------------------- */
+/* 基本の2分割レイアウト */
 section.split {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 40px;
 	align-items: center;
+}
+
+/* 左側が大きい分割（60:40） */
+section.split-left {
+	display: grid;
+	grid-template-columns: 6fr 4fr;
+	gap: 40px;
+	align-items: center;
+}
+
+/* 右側が大きい分割（40:60） */
+section.split-right {
+	display: grid;
+	grid-template-columns: 4fr 6fr;
+	gap: 40px;
+	align-items: center;
+}
+
+/* 3分割レイアウト */
+section.split-3 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 30px;
+	align-items: start;
+}
+
+/* グリッドアイテムの配置調整用 */
+.grid-center {
+	justify-self: center;
+	text-align: center;
+}
+
+.grid-start {
+	justify-self: start;
+	text-align: left;
+}
+
+.grid-end {
+	justify-self: end;
+	text-align: right;
+}
+
+/* 垂直方向の配置調整 */
+.align-top {
+	align-self: start;
+}
+
+.align-bottom {
+	align-self: end;
+}
+
+.align-center {
+	align-self: center;
 }
 
 /**
@@ -351,6 +405,12 @@ pre code {
 	border-radius: 0;
 	font-size: 0.9em;
 	line-height: 1.5;
+}
+
+/* 画像の中央寄せ */
+section img {
+	display: block;
+	margin: 0 auto;
 }
 
 /* 太字テキストのスタイル */
