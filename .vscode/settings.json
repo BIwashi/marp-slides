@@ -1,8 +1,6 @@
 {
-    "markdown.marp.themes": [
-        "./src/themes/newmo.css"
-    ],
-    "pasteImage.defaultName": "Y-MM-DD-HH-mm-ss-SS",
-    "pasteImage.insertPattern": "${imageSyntaxPrefix}./images/${imageFileName}${imageSyntaxSuffix}",
-    "pasteImage.path": "${currentFileDir}/images"
+	"markdown.marp.themes": ["./src/themes/newmo.css"],
+	"pasteImage.defaultName": "Y-MM-DD-HH-mm-ss-SS",
+	"pasteImage.insertPattern": "${imageSyntaxPrefix}./images/${imageFileName}${imageSyntaxSuffix}",
+	"pasteImage.path": "${currentFileDir}/images"
 }

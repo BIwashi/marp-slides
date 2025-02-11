@@ -6,6 +6,16 @@
 run/marp: ## Run Marp ## make run/marp
 	marp -s .
 
+##### LINT #####
+
+.PHONY: lint/check
+lint/check: ## Run biome check ## make lint/check
+	biome check .
+
+.PHONY: lint/fix
+lint/fix: ## Run biome check fix
+	biome check --apply .
+
 ##### EXPORT #####
 
 .PHONY: export/pdf

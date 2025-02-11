@@ -48,6 +48,12 @@ make clean/images
 # ビルド成果物の削除
 make clean/all
 
+# Lintのチェック
+make lint/check
+
+# Lintの自動修正
+make lint/fix
+
 # コマンド一覧の表示
 make help
 ```
