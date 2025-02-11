@@ -52,11 +52,20 @@ header: 背景
 
 ## Monorepo Development
 - newmo では**モノレポ**で開発を行っている
-  - 全てのアプリケーションやマイクロサービスの全コードを単一のリポジトリで管理
+  - 全てのアプリケーションやマイクロサービスのコードを単一のリポジトリで管理
   - マイクロサービスとしての**独立性**を維持
   - 開発効率と保守性の両立
 
-![bg h:300px right:40%](../images/honaa_surprised.png)
+<img src="../images/honaa_surprised.png" class="honaa-surprised" >
+
+<style scoped>
+.honaa-surprised {
+	position: absolute;
+	width: 300px;
+	right: 32px;
+	bottom: 100px;
+}
+</style>
 
 ---
 
@@ -64,10 +73,10 @@ header: 背景
 
 ### Log Monitor
 
-- アプリケーションログに対して、クエリした結果を通知
+- アプリケーションログに対して、**クエリした結果**を通知
   - ログレベルをエラーにすべきではないところが残存
-  - Monitor のクエリで `-` を使用して随時に除外
-- クエリにログファセットが多く使用
+  - Monitor の**クエリで `-` を使用して随時に除外**
+- クエリに**ログファセット**が多く使用
   - 使用自体は問題ないが、予約済み属性（e.g. `service`/`env`/`version`）を使用するところも facet になっており保守が大変
 
 ```sql
@@ -81,15 +90,17 @@ header: 背景
 ## Log Monitor と運用の課題
 
 ### **重要度の判定**と**除外**
-  - 開発中はログが発生しても即座に修正まで行えないこともあった
-  - 重要なエラーも軽微なエラーも同一に通知されチャンネルの**流量が増大**
-  - 除外するための**クエリ修正が増加**
-  - <u>適切に**トリアージ**ができていない</u>
+- 開発中はログが発生しても即座に修正まで行えないこともあった
+- 重要なエラーも軽微なエラーも同一に通知されチャンネルの**流量が増大**
+- 除外するための**クエリ修正が増加**
+
+<br >
 
 ### **オーナーシップ**の明確化
   - エラーが**どのマイクロサービス起因**なのかが分かりにくい
   - マイクロサービスの**オーナーが確認**するまでは放置されがちに…
-  - <u>適切に**トリアージ**ができていない</u>
+
+<br >
 
 
 <img src="../images/honaa_crying.png" class="honaa-crying" >
@@ -103,6 +114,34 @@ header: 背景
 }
 </style>
 
+---
+
+
+## Log Monitor と運用の課題
+
+### **重要度の判定**と**除外**
+  - 開発中はログが発生しても即座に修正まで行えないこともあった
+  - 重要なエラーも軽微なエラーも同一に通知されチャンネルの**流量が増大**
+  - 除外するための**クエリ修正が増加**
+
+<u>適切に**トリアージ**ができていない</u>
+
+### **オーナーシップ**の明確化
+  - エラーが**どのマイクロサービス起因**なのかが分かりにくい
+  - マイクロサービスの**オーナーが確認**するまでは放置されがちに…
+<u>適切に**エスカレーション**ができていない</u>
+
+
+<img src="../images/honaa_crying.png" class="honaa-crying" >
+
+<style scoped>
+.honaa-crying {
+	position: absolute;
+	width: 300px;
+	right: 32px;
+	bottom: 100px;
+}
+</style>
 ---
 
 <!-- _class: highlight-box -->
@@ -128,17 +167,17 @@ header: 課題
 
 ## エラーの適切なトリアージ<br ><br ><br >
 
-- エラーを適切に選別する
+- エラーを適切に**選別**する
   - エラーを種類ごとに分類
   - 重要度やステータスを個別管理
-- 通知対象から適切に除外
+- 通知対象から適切に**除外**
   - エラー単位で除外
 
 ## エラーのオーナーを明確化<br ><br ><br >
 
-- 適切にマイクロサービスを特定
+- 適切に**マイクロサービスを特定**
   - attribute を適切に指定
-- オーナーに適切に通知
+- オーナーに適切に**通知**
   - Error Message やグループメンションを活用
 
 ---
@@ -148,17 +187,17 @@ header: 課題
 
 ## エラーの適切なトリアージ<br >**Error Tracking**<br >**Case Management**
 
-- エラーを適切に選別する
+- エラーを適切に**選別**する
   - エラーを種類ごとに分類
   - 重要度やステータスを個別管理
-- 通知対象から適切に除外
+- 通知対象から適切に**除外**
   - エラー単位で除外
 
 ## エラーのオーナーを明確化<br >**Reference Tables**<br >**Log Pipeline**
 
-- 適切にマイクロサービスを特定
+- 適切に**マイクロサービスを特定**
   - attribute を適切に指定
-- オーナーに適切に通知
+- オーナーに適切に**通知**
   - Error Message やグループメンションを活用
 
 ---
@@ -181,7 +220,7 @@ header: Error Tracking
 -->
 
 ## Error Tracking
-- エラーログに含まれている特定の attibutes を元に Datadog がエラーを選別
+- エラーログに含まれている特定の attibutes を元に **Datadog がエラーを選別**
   - `error.message` 
   - `error.stack`
   - `error.kind`
@@ -192,8 +231,8 @@ header: Error Tracking
 ---
 
 ## Issue
-- エラーは Issue という単位で選別される
-- Status という属性を持っている
+- エラーは **Issue** という単位で選別される
+- **Status** という属性を持っている
 
 ![w:800px](./images/2025-02-11-16-26-39-21.png)
 
@@ -202,7 +241,7 @@ header: Error Tracking
 
 ## Issue Status
 
-### 4種類のステータスを持っている
+### **4種類**のステータスを持っている
 
 ![](./images/2025-02-11-16-51-25-78.png)
 
@@ -214,7 +253,7 @@ header: Error Tracking
 
 - 問題が新規発生 or リグレッションして確認が必要な状態
 
-### **Reviewd**
+### **Reviewed**
 
 - トリアージ済、現在修正中の状態
 
@@ -260,18 +299,17 @@ header: Error Tracking
 
 ---
 
-## New Issue の対象
+## **New Issue** の対象
 
 - New Issue の対象は新規発生した or リグレッションした Issue のみ
-  - リグレッション：一度 Resolved になった Issue が再発した時
+  - **リグレッション**：一度 Resolved になった Issue が**再発**した時
 
-## Automatic resolution
+## **Automatic resolution**
 
 Datadog は以下の条件で自動的に Issue の Status を **For Review** -> **Resolved** に変更する
 
-- 最後に issue の error が発生したのが**14日以上**前のバージョンで新しいバージョンで同様のエラーが発生していない
+- 最後に issue の error が発生したのが**14日以上**前のバージョンで新しいバージョンで同様のエラーが初めて発生
 - もし `version` tag が存在してないなかった場合、**14日以内**にその issue にエラーが発生していない場合
-
 
 
 ---
@@ -279,7 +317,7 @@ Datadog は以下の条件で自動的に Issue の Status を **For Review** ->
 ## Regression Detection
 
 - 一度 Resolved になった Issue が再発した時に自動で **For Review** に変更
-- Regression というタグがつけられる
+- **Regression** というタグがつけられる
 
 ![w:800px](./images/2025-02-11-17-22-04-15.png)
 
@@ -300,7 +338,7 @@ header: Case Management
 ## Case Management
 
 - チケットを作成して、Issue を管理
-- Error Tracking と連携して、Error Issue に紐づいた Case を作成可能
+- Error Tracking と連携して、**Error Issue に紐づいた Case** を作成可能
 - エラー発生理由や紐づくチケットなどを記載可能
 
 ![bg w:700 right:55%](./images/2025-02-11-17-36-51-34.png)
