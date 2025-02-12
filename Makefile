@@ -22,6 +22,10 @@ lint/fix: ## Run biome check fix
 export/pdf: ## Export to PDF ## make export/pdf
 	npx @marp-team/marp-cli@latest -c .marprc.yaml --pdf --allow-local-files
 
+.PHONY: export/images
+export/images: ## Export to images ## make export/images
+	npx @marp-team/marp-cli@latest -c .marprc.yaml --images png --allow-local-files --output dist/
+
 .PHONY: export/index
 export/index: ## Generate index slide ## make export/index
 	@echo "Generating index slide..."

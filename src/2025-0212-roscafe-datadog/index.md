@@ -350,6 +350,27 @@ header: Case Management
 ![bg w:700 right:55%](./images/2025-02-11-17-36-51-34.png)
 
 ---
+
+### 余談：Workflow Automation で Linear と Casa Management 連携（構想）
+
+- Casa Management ではデフォルトで **Jira, ServiceNow** と連携が可能
+- Linear を使用しているが、Datadog では公式で対応していない
+- しかし Workflow Automation には **Case Management のトリガー**が存在
+
+## Linear 連携を自作可能（なはず）
+
+![w:700px](./images/2025-02-12-11-10-18-79.png)
+
+
+---
+
+
+![](./images/2025-02-12-11-15-21-30.png)
+
+
+---
+
+
 <!-- _class: highlight -->
 
 <!--
