@@ -58,18 +58,20 @@ export/html: export/index ## Export to HTML ## make export/html
 
 .PHONY: clean/images
 clean/images: ## Clean unused images in slide directories ## make clean/images
-	@for dir in $$(find src -type f -name "index.md" -exec dirname {} \;); do \
-		echo "Cleaning unused images in $$dir..."; \
-		used_images=$$(grep -o '!\[.*\]([^)]*)' "$$dir/index.md" | sed 's/.*(\(.*\))/\1/' | sed 's/\.\///' | sort | uniq); \
-		for img in "$$dir"/images/*.{png,jpg,jpeg}; do \
-			if [ -f "$$img" ]; then \
-				img_relative=$$(echo "$$img" | sed "s|$$dir/||"); \
-				if ! echo "$$used_images" | grep -q "$$img_relative"; then \
-					echo "Removing unused image: $$img"; \
-					rm -f "$$img"; \
+	@for dir in $$(find src -maxdepth 1 -mindepth 1 -type d -not -name "images" -not -name "themes"); do \
+		if [ -d "$$dir/images" ]; then \
+			echo "Cleaning unused images in $$dir/images..."; \
+			used_images=$$(grep -o '!\[.*\]([^)]*)' "$$dir/index.md" | sed 's/.*(\(.*\))/\1/' | sed 's/\.\///' | sort | uniq); \
+			for img in "$$dir"/images/*.{png,jpg,jpeg}; do \
+				if [ -f "$$img" ]; then \
+					img_relative=$$(echo "$$img" | sed "s|$$dir/||"); \
+					if ! echo "$$used_images" | grep -q "$$img_relative"; then \
+						echo "Removing unused image: $$img"; \
+						rm -f "$$img"; \
+					fi; \
 				fi; \
-			fi; \
-		done; \
+			done; \
+		fi; \
 	done
 
 .PHONY: clean/all
