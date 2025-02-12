@@ -500,14 +500,9 @@ component.piyo,eeefff8901,alert-server-component-piyo
 
 ## 動的にメンションする<br >Slack User Group を変更
 
+- マイクロサービス名によってメンション先を変える
+
 ![bg w:670 right:54%](./images/2025-02-11-19-55-04-26.png)
-
----
-
-## メンションされる Slack チャンネルを指定
-
-![w:800px](./images/2025-02-11-19-57-20-33.png)
-
 
 ---
 
