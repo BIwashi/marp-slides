@@ -20,7 +20,13 @@ lint/fix: ## Run biome check fix
 
 .PHONY: export/pdf
 export/pdf: ## Export to PDF ## make export/pdf
-	npx @marp-team/marp-cli@latest -c .marprc.yaml --pdf --allow-local-files
+	npx @marp-team/marp-cli@latest -c .marprc.yaml \
+		--pdf \
+		--allow-local-files \
+		--image-scale 2.0 \
+		--pdf-outlines \
+		--pdf-outlines.pages \
+		--pdf-outlines.headings
 
 .PHONY: export/images
 export/images: ## Export to images ## make export/images
