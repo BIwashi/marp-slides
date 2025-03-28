@@ -112,7 +112,7 @@ section.title header {
 /* 白背景時のロゴ（黒） */
 section:not(.title):not(.highlight):not(.highlight-box)::before {
 	content: "";
-	background-image: url("../themes/images/newmo_logo_black.png");
+	background-image: url("../images/newmo_logo_black.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -126,7 +126,7 @@ section:not(.title):not(.highlight):not(.highlight-box)::before {
 section.highlight::before,
 section.highlight-box::before {
 	content: "";
-	background-image: url("../themes/images/newmo_logo_white.png");
+	background-image: url("../images/newmo_logo_white.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -139,7 +139,7 @@ section.highlight-box::before {
 /* タイトルスライドのロゴ（白） - 大きいサイズ */
 section.title::before {
 	content: "";
-	background-image: url("../themes/images/newmo_logo_white.png");
+	background-image: url("../images/newmo_logo_white.png");
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;

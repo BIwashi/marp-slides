@@ -53,7 +53,7 @@ header: header
 通常のテキストはこのように表示されます。
 **太字** や *イタリック* も使用できます。
 
-<img src="../images/honaa_surprised.png" class="honaa-surprised" >
+<img src="../lib/images/honaa_surprised.png" class="honaa-surprised" >
 
 <style scoped>
 .honaa-surprised {
