@@ -1,4 +1,4 @@
-themeSet: ./src/themes
+themeSet: ./src/lib/themes
 inputDir: ./src
 output: ./dist
 lang: ja

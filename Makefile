@@ -55,9 +55,9 @@ export/index: ## Generate index slide ## make export/index
 .PHONY: export/html
 export/html: export/index ## Export to HTML ## make export/html
 	npx @marp-team/marp-cli@latest -c .marprc.yaml --html --allow-local-files --output dist/
-	mkdir -p dist/images dist/themes/images
-	cp -r src/images/* dist/images/
-	cp -r src/themes/images/* dist/themes/images/
+	mkdir -p dist/images dist/lib/themes/images
+	cp -r src/lib/images/* dist/images/
+	cp -r src/lib/themes/images/* dist/lib/themes/images/
 	find src -name "images" -type d -exec bash -c 'mkdir -p "dist/$${1#src/}" && cp -r "$$1"/* "dist/$${1#src/}"' _ {} \;
 
 ##### CLEAN #####

@@ -16,8 +16,8 @@ footer: © 2025 newmo | #roscafe
 ---
 
 
-<img src="../images/shota.jpeg" class="profile-icon"  />
-<img src="../images/qr-shota.png" class="qrcode" >
+<img src="../lib/images/shota.jpeg" class="profile-icon"  />
+<img src="../lib/images/qr-shota.png" class="qrcode" >
 
 
 # 自己紹介
@@ -56,7 +56,7 @@ header: 背景
   - マイクロサービスとしての**独立性**を維持
   - 開発効率と保守性の両立
 
-<img src="../images/honaa_surprised.png" class="honaa-surprised" >
+<img src="../lib/images/honaa_surprised.png" class="honaa-surprised" >
 
 <style scoped>
 .honaa-surprised {
@@ -103,7 +103,7 @@ header: 背景
 <br >
 
 
-<img src="../images/honaa_crying.png" class="honaa-crying" >
+<img src="../lib/images/honaa_crying.png" class="honaa-crying" >
 
 <style scoped>
 .honaa-crying {
@@ -133,7 +133,7 @@ header: 背景
 <u>適切に**エスカレーション**ができていない</u>
 
 
-<img src="../images/honaa_crying.png" class="honaa-crying" >
+<img src="../lib/images/honaa_crying.png" class="honaa-crying" >
 
 <style scoped>
 .honaa-crying {
@@ -270,7 +270,7 @@ header: Error Tracking
 - エラーを修正した状態
 
 
-<img src="../images/honaa_on rideA.png" class="honaa-on-ride-a" >
+<img src="../lib/images/honaa_on rideA.png" class="honaa-on-ride-a" >
 
 <style scoped>
 .honaa-on-ride-a {
@@ -533,7 +533,7 @@ component.piyo,eeefff8901,alert-server-component-piyo
 
 # まとめ
 
-<img src="../images/honaa_on rideB.png" class="honaa-on-ride-b" >
+<img src="../lib/images/honaa_on rideB.png" class="honaa-on-ride-b" >
 
 <style scoped>
 .honaa-on-ride-b {
@@ -561,7 +561,7 @@ component.piyo,eeefff8901,alert-server-component-piyo
 - エラーによってメンション先を変えることで、オーナーに適切に通知
 
 
-<img src="../images/honna_trip.png" class="honna-trip" >
+<img src="../lib/images/honna_trip.png" class="honna-trip" >
 
 <style scoped>
 .honna-trip {
